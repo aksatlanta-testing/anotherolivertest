@@ -1,5 +1,7 @@
 # AKS Web Application Routing Operator
 
+test e2e
+
 A Kubernetes operator that manages resources related to AKS Application Routing functionality.
 
 ## Docs
