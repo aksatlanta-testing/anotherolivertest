@@ -4,6 +4,8 @@ A Kubernetes operator that manages resources related to AKS Application Routing 
 
 ## Docs
 
+trigger tests
+
 View the [docs](docs/) folder for more information.
 
 ## Contributing
