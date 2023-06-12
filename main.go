@@ -16,6 +16,8 @@ import (
 	"github.com/Azure/aks-app-routing-operator/pkg/controller"
 )
 
+// trigger e2e
+
 func main() {
 	flag.Parse()
 	rand.Seed(time.Now().Unix())
