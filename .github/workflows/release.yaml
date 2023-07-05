@@ -50,7 +50,7 @@ jobs:
         with:
           name: v${{ steps.changelog.outputs.version }}
           tag: v${{ steps.changelog.outputs.version }}
-          body: ${{ steps.changelog.outputs.body }}
+          body: ${{ steps.changelog.outputs.changes }}
           commit: ${{ inputs.sha }}
           prerelease: false
           draft: false
