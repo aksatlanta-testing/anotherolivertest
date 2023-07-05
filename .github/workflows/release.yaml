@@ -11,7 +11,7 @@ on:
 
 permissions:
       id-token: write
-      contents: read
+      contents: write
 
 jobs: 
   release:
@@ -38,8 +38,10 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build and push image
+        env: |
+          SHA: ${{ inputs.sha }}
         run: |
-          TAG="${{ secrets.AZURE_REGISTRY_SERVER }}/public/aks/aks-app-routing-operator:sha-$(git rev-parse --short HEAD)"
+          TAG="${{ secrets.AZURE_REGISTRY_SERVER }}/public/aks/aks-app-routing-operator:sha-$SHA"
           echo $TAG
 
       - name: Create or update release
