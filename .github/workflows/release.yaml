@@ -27,6 +27,7 @@ jobs:
         uses: mindsers/changelog-reader-action@b97ce03a10d9bdbb07beb491c76a5a01d78cd3ef # v2.2.2
         with:
           version: ${{ inputs.version }}
+          validation_level: warn
 
         # build image from sha input
       - uses: actions/checkout@v3
