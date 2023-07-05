@@ -4,4 +4,4 @@
 
 ### Added
 
-- Initial release of App Routing 🚢
+- Initial release of App Routing
