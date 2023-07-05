@@ -38,7 +38,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build and push image
-        env: |
+        env:
           SHA: ${{ inputs.sha }}
         run: |
           TAG="${{ secrets.AZURE_REGISTRY_SERVER }}/public/aks/aks-app-routing-operator:sha-$SHA"
