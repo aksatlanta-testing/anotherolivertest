@@ -9,16 +9,14 @@ on:
         description: 'Commit SHA to release. Example: 7dec363daaca95c59f68607ac1f29a12bc0b195b'
         required: true
       update:
-        description: 'Update the release if it already exists. Example: true'
+        description: 'Update the release if it already exists'
+        type: boolean
         required: false
         default: false
-        type: boolean
- 
-
 
 permissions:
-      id-token: write
-      contents: write
+  id-token: write
+  contents: write
 
 jobs: 
   release:
@@ -33,8 +31,8 @@ jobs:
         id: changelog
         uses: mindsers/changelog-reader-action@b97ce03a10d9bdbb07beb491c76a5a01d78cd3ef # v2.2.2
         with:
-          version: ${{ inputs.version }}
           validation_level: warn
+          version: ${{ inputs.version }}
 
         # build image from sha input
       - uses: actions/checkout@v3
@@ -45,17 +43,17 @@ jobs:
         id: buildx
         uses: docker/setup-buildx-action@v1
 
+
       - name: Build and push image
         env:
           SHA: ${{ inputs.sha }}
         run: |
           TAG="${{ secrets.AZURE_REGISTRY_SERVER }}/public/aks/aks-app-routing-operator:sha-$SHA"
-          echo $TAG
 
       - name: Create or update release
         uses: ncipollo/release-action@a2e71bdd4e7dab70ca26a852f29600c98b33153e # v1.12.0
         with:
-          name: v${{ steps.changelog.outputs.version }}
+          name: ${{ steps.changelog.outputs.version }}
           tag: v${{ steps.changelog.outputs.version }}
           body: ${{ steps.changelog.outputs.changes }}
           commit: ${{ inputs.sha }}
