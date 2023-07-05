@@ -12,6 +12,8 @@ on:
         description: 'Update the release if it already exists. Example: true'
         required: false
         default: false
+        type: boolean
+ 
 
 
 permissions:
