@@ -49,6 +49,7 @@ jobs:
           SHA: ${{ inputs.sha }}
         run: |
           TAG="${{ secrets.AZURE_REGISTRY_SERVER }}/public/aks/aks-app-routing-operator:sha-$SHA"
+          echo $TAG
 
       - name: Create or update release
         uses: ncipollo/release-action@a2e71bdd4e7dab70ca26a852f29600c98b33153e # v1.12.0
