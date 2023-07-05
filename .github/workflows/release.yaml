@@ -20,7 +20,7 @@ jobs:
       # always read the changelog in main
       - uses: actions/checkout@v3
         with:
-          - ref: 'main'
+          ref: 'main'
 
       - name: Read changelog
         id: changelog
@@ -31,7 +31,7 @@ jobs:
         # build image from sha input
       - uses: actions/checkout@v3
         with:
-          - ref: ${{ inputs.sha }}
+          ref: ${{ inputs.sha }}
 
       - name: Set up Docker Buildx
         id: buildx
